@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ensinando-a-ler",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8790", "--bind", "127.0.0.1"],
+      "port": 8790
+    },
+    {
+      "name": "ensinando-a-ler-2",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8791", "--bind", "127.0.0.1"],
+      "port": 8791
+    }
+  ]
+}

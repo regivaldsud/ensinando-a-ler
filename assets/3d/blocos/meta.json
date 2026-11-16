@@ -1,0 +1,139 @@
+{
+ "camera": {
+  "type": "ORTHO",
+  "pitch_deg": 25.0,
+  "yaw_deg": 0,
+  "note": "linhas/colunas em px da imagem 512x512 (linha 0 = topo). stud_top = primeira linha opaca (topo dos pinos, medido); body_top = aresta de cima-atras do corpo; face_top = aresta de cima-da-frente; body_bottom = aresta de baixo-da-frente; body_left/right = lados do corpo (arestas calculadas, sem o arredondamento dos cantos; alpha_bbox = pixels opacos medidos [esq, topo, dir, baixo]). Para empilhar: suba o bloco de cima stack_step px (= body_bottom - face_top) e desenhe-o por cima do de baixo. Sobre a base: mostre a base com 1/scale_vs_brick (2.5x) do tamanho do bloco, alinhe body_bottom do bloco com face_top da base e o centro do bloco com um dos slots_x."
+ },
+ "bloco_A": {
+  "stud_top": 21,
+  "body_top": 45,
+  "face_top": 214,
+  "body_bottom": 494,
+  "body_left": 56,
+  "body_right": 456,
+  "px_per_unit": 4.0,
+  "file": "bloco_A.png",
+  "w": 512,
+  "h": 512,
+  "letter": "A",
+  "color": "#ff4d5e",
+  "stack_step": 280,
+  "alpha_bbox": [
+   56,
+   21,
+   455,
+   489
+  ]
+ },
+ "bloco_E": {
+  "stud_top": 21,
+  "body_top": 45,
+  "face_top": 214,
+  "body_bottom": 494,
+  "body_left": 56,
+  "body_right": 456,
+  "px_per_unit": 4.0,
+  "file": "bloco_E.png",
+  "w": 512,
+  "h": 512,
+  "letter": "E",
+  "color": "#ffab1a",
+  "stack_step": 280,
+  "alpha_bbox": [
+   56,
+   21,
+   455,
+   489
+  ]
+ },
+ "bloco_I": {
+  "stud_top": 21,
+  "body_top": 45,
+  "face_top": 214,
+  "body_bottom": 494,
+  "body_left": 56,
+  "body_right": 456,
+  "px_per_unit": 4.0,
+  "file": "bloco_I.png",
+  "w": 512,
+  "h": 512,
+  "letter": "I",
+  "color": "#2fc45a",
+  "stack_step": 280,
+  "alpha_bbox": [
+   56,
+   21,
+   455,
+   489
+  ]
+ },
+ "bloco_O": {
+  "stud_top": 21,
+  "body_top": 45,
+  "face_top": 214,
+  "body_bottom": 494,
+  "body_left": 56,
+  "body_right": 456,
+  "px_per_unit": 4.0,
+  "file": "bloco_O.png",
+  "w": 512,
+  "h": 512,
+  "letter": "O",
+  "color": "#2f7bff",
+  "stack_step": 280,
+  "alpha_bbox": [
+   56,
+   21,
+   455,
+   489
+  ]
+ },
+ "bloco_U": {
+  "stud_top": 21,
+  "body_top": 45,
+  "face_top": 214,
+  "body_bottom": 494,
+  "body_left": 56,
+  "body_right": 456,
+  "px_per_unit": 4.0,
+  "file": "bloco_U.png",
+  "w": 512,
+  "h": 512,
+  "letter": "U",
+  "color": "#9b5cf0",
+  "stack_step": 280,
+  "alpha_bbox": [
+   56,
+   21,
+   455,
+   489
+  ]
+ },
+ "bloco_base": {
+  "stud_top": 200,
+  "body_top": 209,
+  "face_top": 277,
+  "body_bottom": 314,
+  "body_left": 16,
+  "body_right": 496,
+  "px_per_unit": 1.6,
+  "file": "bloco_base.png",
+  "w": 512,
+  "h": 512,
+  "color": "#3aa655",
+  "stack_step": 37,
+  "alpha_bbox": [
+   16,
+   200,
+   495,
+   311
+  ],
+  "scale_vs_brick": 0.4,
+  "slots_x": [
+   96,
+   256,
+   416
+  ]
+ }
+}

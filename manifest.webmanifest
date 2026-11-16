@@ -1,0 +1,46 @@
+{
+  "name": "Ensinando a Ler",
+  "short_name": "Ler Brincando",
+  "description": "Jogos para aprender as letras, escrever com o dedo, formar palavras e falar em voz alta.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#dbe8ff",
+  "theme_color": "#1f5fe0",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "id": "./",
+  "categories": [
+    "education",
+    "kids"
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ]
+}

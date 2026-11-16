@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1f5fe0">
+  <meta name="description" content="Jogos para aprender as letras: vogais, consoantes, maiúsculas e minúsculas, escrever com o dedo, formar palavras e falar em voz alta.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Ensinando a Ler">
+  <title>Ensinando a Ler</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/jogos.css">
+  <link rel="stylesheet" href="css/espaco.css">
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <button id="btnHome" class="round" aria-label="Menu">🏠</button>
+      <h1 id="title">Ensinando a Ler</h1>
+      <div class="spacer"></div>
+      <button id="btnRepeat" class="round" aria-label="Repetir a fala">🔊</button>
+      <div id="starCount" class="stars" aria-label="Estrelas">⭐ <b>0</b></div>
+      <button id="btnParents" class="round" aria-label="Área dos pais">⚙️</button>
+    </header>
+    <main id="main">
+      <aside id="buddy">
+        <div id="avatarBox" title="Toque para ouvir de novo"></div>
+        <div id="bubble" class="bubble"><span id="bubbleText">Olá!</span></div>
+        <div id="micBadge" class="mic-badge"><span class="dot"></span> Estou ouvindo…</div>
+        <div id="voiceChip" class="voice-chip" hidden></div>
+      </aside>
+      <section id="stage" class="stage"></section>
+    </main>
+  </div>
+  <div id="fxLayer" aria-hidden="true"></div>
+  <div id="modal" hidden></div>
+
+  <div id="splash">
+    <div class="splash-inner">
+      <div id="splashAvatar" class="splash-avatar"></div>
+      <h1>Olá, <span id="splashName">Heitor</span>!</h1>
+      <p>Vamos aprender as letrinhas brincando?</p>
+      <button class="start btn big green pulse">▶ Vamos brincar!</button>
+      <div class="splash-letters" aria-hidden="true"><b>A</b><b>e</b><b>I</b><b>o</b><b>U</b></div>
+    </div>
+  </div>
+
+  <script src="js/util.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/assets-meta.js"></script>
+  <script src="js/strokes.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/neural.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/avatar.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/trace.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/games2.js"></script>
+  <script src="js/games3.js"></script>
+  <script src="js/games4.js"></script>
+  <script src="js/parents.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>

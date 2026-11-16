@@ -1,0 +1,165 @@
+/* =====================================================================
+   Tema espacial: painel inicial (body:has(.menu-stage)), abertura e o Tico animado.
+   Carregado por último: vale por cima de app.css e jogos.css.
+   ===================================================================== */
+
+/* ---------- Tico animado (quadros do Blender num canvas) ---------- */
+.robo.tico, .robo.tico.is-happy, .robo.tico.is-listen, .robo.tico.is-talk { animation: none; }
+.tico-cv { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 10px 10px rgba(10, 25, 80, .28)); }
+.tico .robo-face { left: 0; top: 0; width: 100px; height: 70px; transform-origin: 0 0; will-change: transform; filter: drop-shadow(0 0 2.5px rgba(80, 220, 255, .95)); }
+.tico-glow { position: absolute; left: 24%; right: 24%; bottom: 0; height: 6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 40, 110, .30), transparent); pointer-events: none; }
+.tico .rf-cheeks { opacity: .45; }
+
+/* ---------- Fundo: espaço com estrelas, nebulosa e estrela cadente ---------- */
+#app { position: relative; z-index: 1; }
+body:has(.menu-stage), #splash {
+  background:
+    radial-gradient(ellipse 60% 45% at 12% 8%, rgba(72, 96, 255, .38), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 92% 96%, rgba(170, 70, 255, .30), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 78% 14%, rgba(0, 200, 255, .16), transparent 70%),
+    linear-gradient(170deg, #050a24 0%, #0a1244 52%, #170f4a 100%);
+}
+body:has(.menu-stage)::before, #splash::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(circle, #fff 0 1.2px, transparent 1.6px) 0 0 / 173px 151px,
+    radial-gradient(circle, rgba(170, 215, 255, .9) 0 1px, transparent 1.5px) 61px 87px / 127px 113px,
+    radial-gradient(circle, rgba(255, 240, 190, .9) 0 1.6px, transparent 2.1px) 23px 41px / 311px 277px,
+    radial-gradient(circle, rgba(255, 255, 255, .55) 0 .8px, transparent 1.2px) 91px 13px / 83px 97px;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+body:has(.menu-stage)::after {
+  content: ''; position: fixed; z-index: 0; pointer-events: none; right: -70px; bottom: -90px; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #7fb4ff 0, #2f62e8 38%, #15206e 72%, #0a0f3c 100%);
+  box-shadow: 0 0 80px rgba(70, 130, 255, .45), inset -30px -30px 60px rgba(0, 0, 30, .55); opacity: .55;
+}
+body:has(.menu-stage) #fxLayer::before {
+  content: ''; position: absolute; top: 12%; left: -12%; width: 150px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #fff); transform: rotate(18deg); opacity: 0;
+  animation: cadente 11s linear infinite 2s;
+}
+@keyframes twinkle { from { opacity: .55; } to { opacity: 1; } }
+@keyframes cadente { 0% { transform: translate(0, 0) rotate(18deg); opacity: 0; } 2% { opacity: 1; } 12% { transform: translate(120vw, 39vw) rotate(18deg); opacity: 0; } 100% { transform: translate(120vw, 39vw) rotate(18deg); opacity: 0; } }
+
+/* ---------- Abertura ---------- */
+#splash h1 { color: #fff; text-shadow: 0 0 24px rgba(90, 160, 255, .8); }
+#splash p { color: #b9ccff; }
+.splash-inner { position: relative; z-index: 1; }
+#splash .tico-glow, body:has(.menu-stage) .tico-glow { background: radial-gradient(closest-side, rgba(70, 200, 255, .55), transparent); height: 8%; left: 18%; right: 18%; }
+#splash .tico-cv, body:has(.menu-stage) .tico-cv { filter: drop-shadow(0 0 18px rgba(80, 160, 255, .45)); }
+.splash-letters b { text-shadow: 0 0 14px currentColor; }
+
+/* ---------- Barra de cima e Tico no painel ---------- */
+body:has(.menu-stage) #title { color: #fff; letter-spacing: .3px; text-shadow: 0 0 18px rgba(90, 160, 255, .9); }
+body:has(.menu-stage) .round, body:has(.menu-stage) .stars {
+  background: rgba(255, 255, 255, .10); color: #fff; border: 1.5px solid rgba(160, 200, 255, .38);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .28), 0 0 18px rgba(70, 130, 255, .25); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+body:has(.menu-stage) .round:active { box-shadow: 0 1px 0 rgba(0, 0, 0, .28); }
+body:has(.menu-stage) .bubble { box-shadow: 0 0 0 2px rgba(120, 190, 255, .55), 0 0 30px rgba(70, 140, 255, .45); }
+body:has(.menu-stage) .stage { scrollbar-width: thin; scrollbar-color: rgba(140, 180, 255, .5) transparent; }
+
+/* ---------- Central de comando (antes: placa azul) ---------- */
+body:has(.menu-stage) .hero {
+  background: linear-gradient(135deg, rgba(48, 84, 220, .50), rgba(22, 24, 92, .62));
+  border: 1.5px solid rgba(140, 185, 255, .45); border-radius: 30px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 18px 44px rgba(0, 0, 0, .45), 0 0 44px rgba(60, 120, 255, .22);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.orbit { position: relative; display: grid; place-items: center; padding: 9px; }
+.orbit::before { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(170, 210, 255, .45); }
+.orbit-moon { position: absolute; inset: 0; animation: orbita 9s linear infinite; }
+.orbit-moon::before { content: ''; position: absolute; top: -6px; left: 50%; width: 13px; height: 13px; margin-left: -6px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #ffd23f 55%, #ff9a1f); box-shadow: 0 0 12px #ffd23f; }
+@keyframes orbita { to { transform: rotate(360deg); } }
+body:has(.menu-stage) .ring {
+  background: radial-gradient(circle, #0c1444 0 60%, transparent 61%), conic-gradient(from 0deg, #35e0ff, #ffd23f calc(var(--p) * 1%), rgba(255, 255, 255, .14) 0);
+  box-shadow: 0 0 26px rgba(53, 224, 255, .45);
+}
+body:has(.menu-stage) .ring b { text-shadow: 0 0 12px rgba(53, 224, 255, .9); }
+body:has(.menu-stage) .hero-go {
+  background: linear-gradient(135deg, #ffab1f, #ff6a2b 70%, #ff4d6d); border-radius: 26px; position: relative; overflow: hidden;
+  box-shadow: 0 6px 0 #a83a12, 0 0 34px rgba(255, 130, 40, .50);
+}
+body:has(.menu-stage) .hero-go::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .35) 50%, transparent 60%); transform: translateX(-100%);
+  animation: brilho 4.5s ease-in-out infinite;
+}
+body:has(.menu-stage) .hero-go:active { box-shadow: 0 2px 0 #a83a12; }
+@keyframes brilho { 0%, 55% { transform: translateX(-100%); } 85%, 100% { transform: translateX(100%); } }
+body:has(.menu-stage) .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+body:has(.menu-stage) .stat {
+  flex-direction: column; align-items: center; gap: 0; padding: 6px 12px; border-radius: 16px; line-height: 1.1;
+  background: rgba(255, 255, 255, .09); border: 1px solid rgba(160, 200, 255, .30);
+}
+body:has(.menu-stage) .stat b { font-size: 20px; }
+body:has(.menu-stage) .stat small { font-size: 12px; color: #b9ccff; }
+body:has(.menu-stage) button.stat:active { transform: translateY(2px); }
+
+/* ---------- Cabine: nível de astronauta + constelação das letras ---------- */
+.cockpit {
+  width: 100%; max-width: 1100px; display: grid; grid-template-columns: minmax(230px, auto) minmax(0, 1fr); gap: 12px; align-items: stretch; color: #fff;
+}
+.astro, .constel-box {
+  background: rgba(255, 255, 255, .07); border: 1.5px solid rgba(140, 185, 255, .30); border-radius: 22px; padding: 10px 14px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.astro { display: flex; align-items: center; gap: 12px; }
+.astro-badge { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; font-size: 32px; flex: none; background: radial-gradient(circle at 35% 30%, #5d8bff, #1f2a8a); box-shadow: 0 0 0 3px rgba(140, 185, 255, .45), 0 0 20px rgba(70, 130, 255, .55); }
+.astro-info { display: flex; flex-direction: column; gap: 5px; min-width: 0; flex: 1; }
+.astro-info b { font-size: 18px; line-height: 1.1; }
+.astro-info small, .constel-box > small { font-size: 13px; color: #b9ccff; font-weight: 700; }
+.fuel { height: 14px; border-radius: 10px; background: rgba(255, 255, 255, .14); overflow: hidden; box-shadow: inset 0 2px 4px rgba(0, 0, 0, .35); }
+.fuel i { display: block; height: 100%; min-width: 6px; border-radius: 10px; background: linear-gradient(90deg, #35e0ff, #5dffa8); box-shadow: 0 0 12px rgba(80, 255, 190, .8); transition: width .6s; }
+.constel-box { display: flex; flex-direction: column; gap: 6px; }
+.constel { display: flex; flex-wrap: wrap; gap: 6px; cursor: pointer; }
+.cstar {
+  width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
+  color: rgba(255, 255, 255, .45); font-size: 15px; font-weight: 800; padding: 0; line-height: 1; pointer-events: none;
+}
+.cstar.mid { border-color: #35e0ff; color: #8ff0ff; box-shadow: 0 0 8px rgba(53, 224, 255, .45); }
+.cstar.on { border-color: #ffe9a0; color: #4a2c00; background: radial-gradient(circle at 35% 30%, #fff7cf, #ffd23f 55%, #ffa51f); box-shadow: 0 0 14px rgba(255, 210, 63, .85); animation: twinkle 2.4s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -.37s); }
+.cstar.now { outline: 2.5px solid #ff8c42; outline-offset: 2px; animation: pulse 1.2s ease-in-out infinite; }
+
+/* ---------- Missões (grupos de brincadeiras) ---------- */
+body:has(.menu-stage) .menu-section h2 { color: #fff; margin: 14px 4px 14px; text-shadow: 0 0 14px rgba(90, 160, 255, .7); }
+body:has(.menu-stage) .menu-section h2::after { height: 3px; opacity: .9; background: linear-gradient(90deg, var(--c, #5d8bff), transparent); }
+.planet { font-size: 1.35em; line-height: 1; filter: drop-shadow(0 0 8px rgba(140, 190, 255, .8)); animation: floaty 3.4s ease-in-out infinite; }
+.sec-count { order: 3; font-size: 14px; font-weight: 800; padding: 2px 10px; border-radius: 20px; background: rgba(255, 255, 255, .10); border: 1px solid rgba(160, 200, 255, .30); color: #dfe9ff; text-shadow: none; white-space: nowrap; }
+body:not(:has(.menu-stage)) .sec-count, body:not(:has(.menu-stage)) .planet { display: none; }
+
+body:has(.menu-stage) .menu-card, body:has(.menu-stage) .menu-card.brickcard {
+  background: linear-gradient(155deg, color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 70%, #0a1036), color-mix(in srgb, var(--cd, var(--c2, #1746c9)) 55%, #070b26));
+  border: 1.5px solid color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 60%, #fff);
+  border-radius: 22px; color: #fff;
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--cd, var(--c2, #1746c9)) 55%, #000), 0 0 22px color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 45%, transparent), inset 0 1px 0 rgba(255, 255, 255, .25);
+  transition: transform .12s, box-shadow .12s;
+}
+body:has(.menu-stage) .menu-card.brickcard::before { display: none; }
+body:has(.menu-stage) .menu-card:active, body:has(.menu-stage) .menu-card.brickcard:active { transform: translateY(5px); box-shadow: 0 1px 0 color-mix(in srgb, var(--cd, #1746c9) 55%, #000); }
+@media (hover: hover) {
+  body:has(.menu-stage) .menu-card:hover { transform: translateY(-3px); box-shadow: 0 9px 0 color-mix(in srgb, var(--cd, var(--c2, #1746c9)) 55%, #000), 0 0 34px color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 70%, transparent), inset 0 1px 0 rgba(255, 255, 255, .25); }
+}
+body:has(.menu-stage) .menu-card .menu-icon, body:has(.menu-stage) .menu-card.brickcard .menu-icon {
+  width: clamp(54px, 5.8vw, 66px); height: clamp(54px, 5.8vw, 66px); border-radius: 50%; display: grid; place-items: center; flex: none;
+  font-size: clamp(28px, 3.2vw, 36px); filter: none;
+  background: radial-gradient(circle at 32% 26%, #fff 0, #eaf2ff 45%, color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 45%, #fff) 100%);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .22), 0 0 18px color-mix(in srgb, var(--c, var(--c1, #2f7bff)) 70%, transparent), inset -5px -6px 10px rgba(10, 20, 80, .22);
+}
+body:has(.menu-stage) .menu-medal { filter: drop-shadow(0 0 8px rgba(255, 210, 63, .9)); }
+
+/* ---------- Telas menores ---------- */
+@media (max-width: 720px) {
+  .cockpit { grid-template-columns: minmax(0, 1fr); }
+  body:has(.menu-stage) .stat { padding: 4px 6px; }
+  body:has(.menu-stage) .stat b { font-size: 16px; } body:has(.menu-stage) .stat small { font-size: 10px; }
+  .cstar { width: 28px; height: 28px; font-size: 13px; }
+  .orbit { padding: 7px; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .astro-badge { width: 42px; height: 42px; font-size: 24px; }
+  .cstar { width: 26px; height: 26px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(.menu-stage)::before, #splash::before, body:has(.menu-stage) #fxLayer::before, .orbit-moon, .cstar.on, .cstar.now, .planet, body:has(.menu-stage) .hero-go::after { animation: none !important; }
+}
